@@ -15,6 +15,11 @@ class CreateWarrantsTable extends Migration
     {
         Schema::create('warrants', function (Blueprint $table) {
             $table->id();
+            $table->string('citizen_number');
+            $table->string('fullname');
+            $table->mediumText('title');
+            $table->longText('reason');
+            $table->string('officer');
             $table->timestamps();
         });
     }

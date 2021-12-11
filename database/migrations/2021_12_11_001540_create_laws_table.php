@@ -15,6 +15,11 @@ class CreateLawsTable extends Migration
     {
         Schema::create('laws', function (Blueprint $table) {
             $table->id();
+            $table->string('code');
+            $table->mediumText('title');
+            $table->longText('description');
+            $table->string('fine');
+            $table->string('months');
             $table->timestamps();
         });
     }

@@ -15,6 +15,14 @@ class CreateLawyersTable extends Migration
     {
         Schema::create('lawyers', function (Blueprint $table) {
             $table->id();
+            $table->string('fullname');
+            $table->string('nationality');
+            $table->string('citizen_number');
+            $table->string('birthday');
+            $table->string('gender');
+            $table->string('dna_code');
+            $table->string('fingerprint');
+            $table->longText('comments');
             $table->timestamps();
         });
     }
