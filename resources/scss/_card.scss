@@ -1,0 +1,106 @@
+.app-card {
+    position: relative;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-flow: column;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    overflow: hidden;
+
+    .app-card-header {
+        position: relative;
+        padding: 20px;
+        -webkit-box-align: center;
+        align-items: center;
+        border-bottom: 1px solid rgba(240, 240, 240, 1);
+    }
+
+    .app-card-body {
+        position: relative;
+        display: block;
+        padding: 20px;
+    }
+
+    .app-card-footer {
+        position: relative;
+        display: block;
+        padding: 20px;
+        border-top: 1px solid rgba(240, 240, 240, 1);
+    }
+}
+
+.auth-card {
+    position: relative;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-flow: column;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 23%;
+    box-shadow: rgb(30 41 59 / 4%) 0 2px 4px 0;
+    border: 1px solid rgba(98, 105, 118, 0.16);
+
+    .auth-card-header {
+        position: relative;
+        padding: 20px;
+        -webkit-box-align: center;
+        align-items: center;
+        border-bottom: 1px solid rgba(240, 240, 240, 1);
+        text-align: center;
+
+        p {
+            padding: 0;
+            margin: 0;
+
+            &:first-child {
+                font-weight: 600;
+                font-size: 18px;
+                margin: 0 0 5px 0;
+            }
+
+            &:last-child {
+                font-size: 12px;
+                color: #666666;
+            }
+        }
+    }
+
+    .auth-card-body {
+        position: relative;
+        display: block;
+        padding: 20px;
+
+        &.error {
+            border-top: 1px solid #f5c2c7;
+            border-bottom: 1px solid #f5c2c7;
+            background: #f8d7da;
+            color: #842026;
+
+            p {
+                padding: 0;
+                margin: 0;
+
+                &:first-child {
+                    font-weight: 600;
+                }
+
+                &:last-child {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+    .auth-card-footer {
+        position: relative;
+        display: block;
+        padding: 20px;
+        border-top: 1px solid rgba(240, 240, 240, 1);
+    }
+}

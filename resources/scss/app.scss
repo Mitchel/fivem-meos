@@ -1,0 +1,16 @@
+@import "root";
+@import "fonts";
+@import "card";
+@import "auth";
+
+// Import color with rgb from root:     rgb(var(--colorName))
+// Import simple var from root:         var(--varName)
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: rgb(var(--colorBackground));
+    font-family: var(--fontBase);
+    font-size: var(--fontSize);
+    color: rgb(var(--colorText));
+}

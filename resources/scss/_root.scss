@@ -1,0 +1,22 @@
+:root {
+    --fontBase: "Poppins", "Roboto", sans-serif;
+    --fontSize: 14px;
+
+    --colorBackground: 246, 248, 251;
+    --colorText: 68, 68, 68;
+}
+
+.btn {
+    padding: 10px;
+}
+
+@media (max-width: 575.98px) {
+    .auth-card {
+        width: 80% !important;
+    }
+}
+@media (max-width: 767.98px) {
+    .auth-card {
+        width: 80% !important;
+    }
+}
