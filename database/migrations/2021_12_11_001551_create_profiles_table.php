@@ -15,6 +15,7 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->string('picture');
             $table->string('fullname');
             $table->string('nationality');
             $table->string('citizen_number');
@@ -22,7 +23,9 @@ class CreateProfilesTable extends Migration
             $table->string('gender');
             $table->string('dna_code');
             $table->string('fingerprint');
+            $table->string('phone_number');
             $table->longText('comments');
+            $table->dateTime('last_search');
             $table->timestamps();
         });
     }

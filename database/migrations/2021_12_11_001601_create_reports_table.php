@@ -15,11 +15,26 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
+            $table->string('citizen_number')->nullable();
+            $table->string('type');
+            $table->string('date');
+            $table->string('time');
+            $table->string('report_number');
+            $table->string('title');
+            $table->string('identity_search');
+            $table->string('security_search');
+            $table->string('seizure');
+            $table->string('transport_cuffs');
+            $table->string('used_force');
+            $table->string('legal_aid');
+            $table->string('findings');
+            $table->string('statement')->nullable();
+            $table->string('comments')->nullable();
+            $table->string('cell');
+            $table->string('laws');
+            $table->string('created_by');
+            $table->dateTime('last_search');
             $table->timestamps();
-
-            /*
-             * TODO: Create tables for reports.
-             */
         });
     }
 

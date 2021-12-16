@@ -10,18 +10,204 @@
     border-radius: 5px;
     overflow: hidden;
 
+    &.warrant {
+        background: #e74c3c;
+
+        .app-card-header {
+            border-bottom: 1px solid rgba(192, 57, 43,1.0);
+            color: #ffffff;
+
+            .description {
+                color: rgba(255,255,255,.7);
+            }
+        }
+
+        .app-card-body {
+            p {
+                margin: 0;
+                padding: 0;
+                color: #fff;
+            }
+        }
+    }
+
     .app-card-header {
         position: relative;
         padding: 20px;
         -webkit-box-align: center;
         align-items: center;
         border-bottom: 1px solid rgba(240, 240, 240, 1);
+
+        &.profile-info {
+            .title {
+                margin: 9px 0 0 0;
+            }
+
+            strong {
+                font-weight: 600;
+            }
+
+            .row>* {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+        }
+
+        img {
+            float: left;
+            border-radius: 5px;
+            width: 100px;
+            height: 100px;
+            margin: 0 20px 0 0;
+            object-fit: cover;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+
+            &.title {
+                font-weight: 500;
+                font-size: 15px;
+            }
+
+            &.description {
+                color: rgba(var(--colorText),.7);
+                font-size: 13px;
+            }
+        }
+
+        .btn {
+            float: right;
+            display: inline-block;
+            vertical-align: middle;
+            text-transform: uppercase;
+            font-weight: 500;
+
+            i {
+                vertical-align: middle;
+            }
+        }
     }
 
     .app-card-body {
         position: relative;
         display: block;
         padding: 20px;
+
+        &.reports {
+            text-decoration: none;
+            color: rgb(var(--colorText));
+
+            &:hover {
+                background: rgba(0,0,0,.05);
+            }
+
+            p {
+                margin: 0;
+                padding: 0;
+
+                &.title {
+                    font-weight: 500;
+                }
+            }
+
+            strong {
+                font-weight: 500;
+            }
+
+            .right-view {
+                float: right;
+
+                .item {
+                    display: inline-block;
+                    margin: 0 0 0 30px;
+
+                    strong {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        &.profile-info {
+
+            @media (max-width: 576px) {
+                .mb-sm-3 {
+                    margin-bottom: 1rem !important;
+                }
+            }
+
+            @media (min-width: 576px) {
+                .mb-sm-3 {
+                    margin-bottom: 0 !important;
+                }
+            }
+            strong {
+                font-weight: 600;
+                display: block;
+            }
+
+            p {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        &.border-bottom {
+            border-bottom: 1px solid rgba(240, 240, 240, 1);
+        }
+
+        &.profiles {
+            padding: 0;
+
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    display: block;
+                    overflow: hidden;
+                    border-bottom: 1px solid rgba(240, 240, 240, 1);
+                    padding: 20px;
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+
+                    img {
+                        width: 45px;
+                        height: 45px;
+                        float: left;
+                        vertical-align: middle;
+                        margin: 0 15px 0 0;
+                        border-radius: 5px;
+                        object-fit: cover;
+                    }
+
+                    span {
+                        display: block;
+
+                        &.fullname {
+                            font-weight: 500;
+                        }
+                    }
+
+                    .btn {
+                        float: right;
+                        display: inline-block;
+                        margin: -39px 0 0 10px;
+                        text-transform: uppercase;
+                        font-weight: 500;
+
+                        i {
+                            margin: 0 5px 0 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .app-card-footer {
@@ -29,6 +215,11 @@
         display: block;
         padding: 20px;
         border-top: 1px solid rgba(240, 240, 240, 1);
+
+        .btn {
+            text-transform: uppercase;
+            font-weight: 500;
+        }
     }
 }
 

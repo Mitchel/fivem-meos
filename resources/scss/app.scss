@@ -14,3 +14,114 @@ html, body {
     font-size: var(--fontSize);
     color: rgb(var(--colorText));
 }
+
+.btn-primary {
+    background: rgba(0, 70, 130, 1);
+    border-color: rgba(0, 70, 130, 1);
+
+    &:hover {
+        background: rgba(0, 70, 130, .6);
+        border-color: rgba(0, 70, 130, .6);
+    }
+}
+
+#app-header {
+    background: #ffffff;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+
+    img {
+        width: 175px;
+        margin: 0 0 15px 0;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        font-size: 17px;
+        font-weight: 500;
+        font-family: 'Roboto Mono', monospace;
+    }
+}
+
+#app-navigation {
+    background: #004682;
+    width: 100%;
+    color: #ffffff;
+    margin: 0 0 30px 0;
+
+    .dropdown-menu {
+        margin-top: 24px !important;
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    ul.app-nav-right {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        float: right;
+
+        li {
+            padding: 25px;
+            display: inline-block;
+
+            a {
+                color: #ffffff;
+                text-decoration: none;
+
+                .function {
+                    padding: 5px 10px;
+                    margin: 0 1px 0 10px;
+                    font-size: 11px;
+                    color: #004682;
+                    background: #ffffff;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+            }
+
+            ul {
+                li {
+                    display: block;
+                    padding: 0;
+
+                    a {
+                        color: rgb(var(--colorText));
+                    }
+                }
+            }
+        }
+    }
+
+    ul.app-nav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            padding: 25px;
+
+            &.active {
+                font-weight: 500;
+            }
+
+            &:hover, &.active {
+                background: rgba(255,255,255,.85);
+
+                a {
+                    color: #004682;
+                }
+            }
+
+            a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+        }
+    }
+}
