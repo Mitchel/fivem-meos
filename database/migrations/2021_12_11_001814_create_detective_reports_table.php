@@ -16,6 +16,10 @@ class CreateDetectiveReportsTable extends Migration
         Schema::create('detective_reports', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            /*
+             *  TODO: Create tables for reports.
+             */
         });
     }
 

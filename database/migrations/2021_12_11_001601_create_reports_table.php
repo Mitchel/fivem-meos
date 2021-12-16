@@ -16,6 +16,10 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            /*
+             * TODO: Create tables for reports.
+             */
         });
     }
 
