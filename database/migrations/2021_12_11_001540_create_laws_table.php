@@ -15,12 +15,11 @@ class CreateLawsTable extends Migration
     {
         Schema::create('laws', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
-            $table->mediumText('title');
-            $table->longText('description');
-            $table->string('fine');
-            $table->string('months');
-            $table->timestamps();
+            $table->string('name');
+            $table->text('description');
+            $table->integer('fine');
+            $table->integer('months');
+            $table->dateTime('updated_at');
         });
     }
 

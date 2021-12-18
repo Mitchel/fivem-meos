@@ -16,7 +16,9 @@ Route::prefix('/')->name('app.')->group(function () {
 });
 
 Route::prefix('/')->name('supervisor.')->group(function () {
-    Route::get('laws', [AppController::class, 'laws'])->name('laws');
+    Route::match(array('get', 'post'), 'laws', [AppController::class, 'laws'])->name('laws');
+    Route::match(array('get', 'post'), 'laws/edit/{id}', [AppController::class, 'lawsEdit'])->name('edit');
+    Route::match(array('get', 'post'), 'laws/delete/{id}', [AppController::class, 'lawsDelete'])->name('delete');
     Route::get('colleagues', [AppController::class, 'colleagues'])->name('colleagues');
     Route::get('colleagues/{citizen_number}', [AppController::class, 'colleaguesView'])->name('view');
 });

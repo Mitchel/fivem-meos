@@ -78,11 +78,62 @@ class AppController extends Controller
 
     // Supervisor
 
-    public function laws()
+    public function laws(Request $request)
     {
-        return view('app.supervisor.laws')->with([
+        if($request->isMethod('post')) {
+            $attributes = request()->validate([
+                'name'             => ['required', 'min:3', 'max:255'],
+                'fine'              => ['required', 'min:1', 'max:25'],
+                'months'            => ['required', 'min:1', 'max:25'],
+                'description'       => ['required', 'min:1', 'max:1000'],
+            ]);
 
+            $laws = Law::create($attributes);
+            $laws->save();
+
+            return redirect()->route('supervisor.laws')->with('success', 'Straf is zojuist succesvol toegevoegd');
+        }
+
+        $showlaws = Law::get()->all();
+
+        return view('app.supervisor.laws')->with([
+            'showlaws'  => $showlaws,
         ]);
+    }
+
+    public function lawsEdit(Request $request, $id)
+    {
+        $laws = Law::where('id', $id)->firstOrFail();
+
+        if($request->isMethod('post')) {
+            $this->validate($request, [
+                'name'              => ['required', 'min:3', 'max:255'],
+                'fine'              => ['required', 'min:1', 'max:25'],
+                'months'            => ['required', 'min:1', 'max:25'],
+                'description'       => ['required', 'min:1', 'max:1000'],
+            ]);
+
+            $laws_data = [
+                'name'              => $request->name,
+                'fine'              => $request->fine,
+                'months'            => $request->months,
+                'description'       => $request->description,
+            ];
+
+            Law::where('id', $id)->update($laws_data);
+            return redirect()->route('supervisor.laws')->with('success', 'Straf is zojuist succesvol aangepast');
+        }
+
+        return view('app.supervisor.edit')->with([
+            'id'    => $id,
+            'laws'  => $laws,
+        ]);
+    }
+
+    public function lawsDelete(Request $request, $id)
+    {
+        Law::where('id', $id)->delete($request->all());
+        return redirect()->route('supervisor.laws')->with('success', 'Straf is succesvol verwijdert');
     }
 
     public function colleagues()

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Law extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'fine',
+        'months',
+        'description'
+    ];
 }
