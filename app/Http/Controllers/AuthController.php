@@ -26,7 +26,7 @@ class AuthController extends Controller
                 session()->regenerate();
 
                 $user = Auth::User();
-                $user->last_login = date('d-m-Y H:i:s');
+                $user->last_login = now('Europe/Amsterdam')->format('d-m-Y H:i:s');
                 $user->save();
 
                 return redirect()->route('app.dashboard')->with('success', 'Ingelogd');

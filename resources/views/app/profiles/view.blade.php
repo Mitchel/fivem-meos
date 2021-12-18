@@ -65,7 +65,7 @@
                 <div class="app-card-header">
                     <a href="{{ route('reports.create') }}" class="btn btn-success btn-sm"><i class="far fa-plus fa-fw"></i> Nieuw pand</a>
                     <p class="title">Panden</p>
-                    <p class="description">Huis - Loods - Bedrijfspand - Overig</p>
+                    <p class="description">Op naam van gebruiker</p>
                 </div>
                 @forelse($showproperties as $data)
                     <div class="app-card-body profile-info border-bottom">

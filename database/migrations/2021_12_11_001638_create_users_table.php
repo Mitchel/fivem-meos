@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('username');
             $table->string('password');
+            $table->string('picture');
             $table->string('fullname');
             $table->string('call_sign');
             $table->string('function');
@@ -29,11 +30,13 @@ class CreateUsersTable extends Migration
             $table->string('fingerprint');
             $table->string('weapon');
             $table->string('taser');
-            $table->longText('comments');
+            $table->mediumText('comments');
             $table->string('detective');
+            $table->string('detective_supervisor');
             $table->string('supervisor');
             $table->string('admin');
             $table->string('last_login');
+            $table->string('last_search');
             $table->timestamps();
         });
     }

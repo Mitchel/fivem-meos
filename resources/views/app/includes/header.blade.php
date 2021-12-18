@@ -13,10 +13,10 @@
                     <li class="{{ checkActive('app.dashboard') }}"><a href="{{ route('app.dashboard') }}">Dashboard</a></li>
                     <li class="{{ checkActive('profiles.overview') }}"><a href="{{ route('profiles.overview') }}">Profielen</a></li>
                     <li class="{{ checkActive('reports.overview') }}"><a href="{{ route('reports.overview') }}">Rapporten</a></li>
-                    <li><a href="#">Arrestatiebevelen</a></li>
+                    <li class="{{ checkActive('warrants.overview') }}"><a href="{{ route('warrants.overview') }}">Arrestatiebevelen</a></li>
 
                     @if($user->detective == '1')
-                        <li><a href="#">Recherche</a></li>
+                        <li class="{{ checkActive('detective.overview') }}"><a href="{{ route('detective.overview') }}">Recherche</a></li>
                     @endif
                 </ul>
             </div>
@@ -27,11 +27,12 @@
                             {{ $user->fullname }} <span class="function">{{ $user->function }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
-                            <li><a class="dropdown-item" href="#">Profiel</a></li>
+                            <li><a class="dropdown-item" href="{{ route('app.profile') }}">Profiel</a></li>
+                            <li><a class="dropdown-item" href="{{ route('app.statics') }}">Statistieken</a></li>
                             @if($user->supervisor == '1')
                                 <li><h6 class="dropdown-header">Leidinggevende</h6></li>
-                                <li><a class="dropdown-item" href="#">Collega's</a></li>
-                                <li><a class="dropdown-item" href="#">Straffen</a></li>
+                                <li><a class="dropdown-item" href="{{ route('supervisor.colleagues') }}">Medewerkers</a></li>
+                                <li><a class="dropdown-item" href="{{ route('supervisor.laws') }}">Straffen</a></li>
                             @endif
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{{ route('auth.logout') }}">Uitloggen</a></li>

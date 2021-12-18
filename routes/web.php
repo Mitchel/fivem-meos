@@ -11,6 +11,22 @@ Route::prefix('/')->name('auth.')->group(function () {
 
 Route::prefix('/')->name('app.')->group(function () {
     Route::get('dashboard', [AppController::class, 'dashboard'])->name('dashboard');
+    Route::get('statics', [AppController::class, 'statics'])->name('statics');
+    Route::get('profile', [AppController::class, 'profile'])->name('profile');
+});
+
+Route::prefix('/')->name('supervisor.')->group(function () {
+    Route::get('laws', [AppController::class, 'laws'])->name('laws');
+    Route::get('colleagues', [AppController::class, 'colleagues'])->name('colleagues');
+    Route::get('colleagues/{citizen_number}', [AppController::class, 'colleaguesView'])->name('view');
+});
+
+Route::prefix('/')->name('warrants.')->group(function () {
+    Route::get('warrants', [AppController::class, 'warrantsOverview'])->name('overview');
+});
+
+Route::prefix('/')->name('detective.')->group(function () {
+    Route::get('detective', [AppController::class, 'detective'])->name('overview');
 });
 
 Route::prefix('/')->name('profiles.')->group(function () {

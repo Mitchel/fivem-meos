@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\Warrant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AppController extends Controller
 {
@@ -35,6 +36,86 @@ class AppController extends Controller
             'statsProfiles' => $statsProfiles,
             'statsLaws' => $statsLaws,
             'statsUsers' => $statsUsers,
+        ]);
+    }
+
+    public function statics()
+    {
+        return view('app.statics')->with([
+
+        ]);
+    }
+
+    public function profile(Request $request)
+    {
+        if($request->isMethod('get')) {
+            $profile = User::where('id', auth()->user()->id)->first();
+            $profile->last_search = now('Europe/Amsterdam')->format('d-m-Y H:i:s');
+            $profile->save();
+        }
+
+        $showreports = Report::where('created_by', auth()->user()->fullname)->get();
+        $reportstotal = Report::where('created_by', auth()->user()->fullname)->count();
+
+        return view('app.profile')->with([
+            'showreports' => $showreports,
+            'reportstotal'  => $reportstotal,
+        ]);
+    }
+
+    // Detective
+
+    public function detective()
+    {
+        $detectivesupervisor = User::where('detective_supervisor', '=', 1)->get();
+        $detectives = User::where('detective', '=', '1')->where('detective_supervisor', '=', 0)->get();
+
+        return view('app.detective.overview')->with([
+            'detectivesupervisor' => $detectivesupervisor,
+            'detectives' => $detectives
+        ]);
+    }
+
+    // Supervisor
+
+    public function laws()
+    {
+        return view('app.supervisor.laws')->with([
+
+        ]);
+    }
+
+    public function colleagues()
+    {
+        $colleagues = User::get()->all();
+
+        return view('app.supervisor.colleagues')->with([
+            'colleagues' => $colleagues,
+        ]);
+    }
+
+    public function colleaguesView($citizen_number, Request $request)
+    {
+        if($request->isMethod('get')) {
+            $profile = User::where('citizen_number', $citizen_number)->first();
+            $profile->last_search = now('Europe/Amsterdam')->format('d-m-Y H:i:s');
+            $profile->save();
+        }
+
+        $profile = User::where('citizen_number', $citizen_number)->get();
+
+        return view('app.supervisor.view')->with([
+            'citizen_number' => $citizen_number,
+            'profile'   => $profile,
+        ]);
+    }
+
+    // Warrants
+
+    public function warrantsOverview()
+    {
+        return view('app.warrants.overview')->with([
+
         ]);
     }
 
@@ -125,7 +206,11 @@ class AppController extends Controller
             // TODO: Post method maken.
         }
 
-        return view('app.reports.overview');
+        $reports = Report::orderBy('last_search', 'desc')->limit(10)->get()->all();
+
+        return view('app.reports.overview')->with([
+            'reports'   => $reports,
+        ]);
     }
 
     public function reportsView($report_number)

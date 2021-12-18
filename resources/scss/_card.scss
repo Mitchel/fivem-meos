@@ -57,6 +57,20 @@
         align-items: center;
         border-bottom: 1px solid rgba(240, 240, 240, 1);
 
+        &.no-border {
+            border-bottom: 0;
+        }
+
+        .pic-small {
+            width: 45px;
+            height: 45px;
+            float: left;
+            vertical-align: middle;
+            margin: 0 15px 0 0;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
         &.profile-info {
             .title {
                 margin: 9px 0 0 0;
@@ -102,6 +116,7 @@
             vertical-align: middle;
             text-transform: uppercase;
             font-weight: 500;
+            margin: 0 0 0 5px;
 
             i {
                 vertical-align: middle;
