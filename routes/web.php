@@ -16,7 +16,6 @@ Route::prefix('/')->name('app.')->group(function () {
 Route::prefix('/')->name('profiles.')->group(function () {
     Route::match(array('get', 'post'), 'profiles', [AppController::class, 'profiles'])->name('overview');
     Route::get('profiles/{citizen_number}', [AppController::class, 'profilesView'])->name('view');
-    Route::match(array('get', 'post'), 'profiles/create', [AppController::class, 'profilesCreate'])->name('create');
     Route::match(array('get', 'post'), 'profiles/edit/{citizen_number}', [AppController::class, 'profilesEdit'])->name('edit');
     Route::match(array('get', 'post'), 'profiles/delete/{citizen_number}', [AppController::class, 'profilesDelete'])->name('delete');
 });

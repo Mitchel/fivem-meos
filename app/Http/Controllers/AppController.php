@@ -6,12 +6,8 @@ use App\Models\Profile;
 use App\Models\Properties;
 use App\Models\Report;
 use App\Models\Vehicle;
-use App\Models\Warant;
 use App\Models\Warrant;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\ValidationException;
 
 class AppController extends Controller
 {
@@ -37,22 +33,22 @@ class AppController extends Controller
     {
         if($request->isMethod('post')) {
             $attributes = request()->validate([
-                'fullname'              => ['required'],
-                'citizen_number'        => ['required'],
-                'picture'               => [''],
+                'fullname'              => ['required', 'min:3', 'max:255'],
+                'citizen_number'        => ['required', 'min:3', 'max:255'],
+                'picture'               => ['min:1', 'max:255'],
                 'birthday'              => ['required'],
                 'gender'                => ['required'],
-                'nationality'           => ['required'],
-                'phone_number'          => ['required'],
-                'fingerprint'           => ['required'],
-                'dna_code'              => ['required'],
+                'nationality'           => ['required', 'min:3', 'max:255'],
+                'phone_number'          => ['required', 'min:3', 'max:255'],
+                'fingerprint'           => ['required', 'min:3', 'max:255'],
+                'dna_code'              => ['required', 'min:3', 'max:255'],
             ]);
 
             $profile = Profile::create($attributes);
             $profile->last_search = now('Europe/Amsterdam')->format('d-m-Y H:i:s');
             $profile->save();
 
-            return redirect()->route('profiles.overview')->with('success', 'Profiel succesvol aangemaakt.');
+            return redirect()->route('profiles.overview')->with('success', 'Profiel is zojuist succesvol aangemaakt.');
         }
 
         $profiles = Profile::orderBy('last_search', 'desc')->limit(10)->get()->all();
@@ -88,15 +84,6 @@ class AppController extends Controller
         ]);
     }
 
-    public function profilesCreate(Request $request)
-    {
-        if($request->isMethod('post')) {
-            // TODO: Post method maken.
-        }
-
-        return view('app.profiles.create');
-    }
-
     public function profilesEdit(Request $request, $citizen_number)
     {
         if($request->isMethod('post')) {
@@ -108,13 +95,10 @@ class AppController extends Controller
         ]);
     }
 
-    public function profilesDelete(Request $request)
+    public function profilesDelete(Request $request, $citizen_number)
     {
-        if($request->isMethod('post')) {
-            // TODO: Post method maken.
-        }
-
-        return view('app.profiles.delete');
+        Profile::where('citizen_number', $citizen_number)->delete($request->all());
+        return redirect()->route('profiles.overview')->with('success', 'Profiel succesvol verwijdert.');
     }
 
     // Reports
@@ -133,15 +117,6 @@ class AppController extends Controller
         return view('app.reports.view')->with([
             'report_number' => $report_number
         ]);
-    }
-
-    public function reportsCreate(Request $request)
-    {
-        if($request->isMethod('post')) {
-            // TODO: Post method maken.
-        }
-
-        return view('app.reports.create');
     }
 
     public function reportsEdit(Request $request)

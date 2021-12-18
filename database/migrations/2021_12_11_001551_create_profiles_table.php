@@ -25,7 +25,7 @@ class CreateProfilesTable extends Migration
             $table->string('fingerprint');
             $table->string('phone_number');
             $table->mediumText('comments')->nullable();
-            $table->string('last_search');
+            $table->string('last_search')->nullable();
             $table->timestamps();
         });
     }

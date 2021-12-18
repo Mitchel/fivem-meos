@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->longText('comments');
             $table->string('detective');
             $table->string('supervisor');
+            $table->string('admin');
             $table->string('last_login');
             $table->timestamps();
         });

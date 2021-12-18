@@ -9,15 +9,24 @@
                     <p class="title">Profielen</p>
                     <p class="description">Laatste 10 opgezochte profielen</p>
                 </div>
+                @if(session()->has('success'))
+                    <div class="app-card-body success">
+                        <p>Goed gedaan, de korpsleiding is trots op je!</p>
+                        <p>{{ session('success') }}</p>
+                    </div>
+                @endif
                 <div class="app-card-body profiles">
                     <ul>
-                        @forelse($profiles as $profiles)
+                        @forelse($profiles as $profile)
                             <li>
-                                <img src="{{ $profiles->picture }}" alt="{{ $profiles->fullname }}">
-                                <span class="fullname">{{ $profiles->fullname }}</span>
-                                <span class="citizen_number">BSN: {{ $profiles->citizen_number }}</span>
-                                <a href="{{ route('profiles.overview') }}/{{ $profiles->citizen_number }}" class="btn btn-primary btn-sm"><i class="far fa-eye fa-fw"></i> Bekijk</a>
+                                <img src="{{ $profile->picture }}" alt="{{ $profile->fullname }}">
+                                <span class="fullname">{{ $profile->fullname }}</span>
+                                <span class="citizen_number">BSN: {{ $profile->citizen_number }}</span>
+                                <a href="{{ route('profiles.overview') }}/{{ $profile->citizen_number }}" class="btn btn-primary btn-sm"><i class="far fa-eye fa-fw"></i> Bekijk</a>
                                 <a href="{{ route('reports.create') }}" class="btn btn-success btn-sm"><i class="far fa-plus fa-fw"></i> Nieuw rapport</a>
+                                @if($user->admin == '1')
+                                    <a href="{{ route('profiles.delete', $profile->citizen_number) }}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt fa-fw" style="margin: 0;"></i></a>
+                                @endif
                             </li>
                         @empty
                             <li>Momenteel zijn er geen profielen te vinden.</li>
@@ -34,9 +43,9 @@
                     <p class="description">Vul het formulier volledig in.</p>
                 </div>
                 @if ($errors->any())
-                    <div class="auth-card-body error">
+                    <div class="app-card-body error">
+                        <p>Iets ging niet goed, de korpsleiding is iets minder trots op je!</p>
                         @foreach($errors->all() as $error)
-                            <p>Iets ging niet helemaal goed...</p>
                             <p>{{ $error }}</p>
                         @endforeach
                     </div>

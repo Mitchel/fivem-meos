@@ -101,6 +101,38 @@
   display: block;
   padding: 20px;
 }
+.app-card .app-card-body.error {
+  border-top: 1px solid #f5c2c7;
+  border-bottom: 1px solid #f5c2c7;
+  background: #f8d7da;
+  color: #842026;
+}
+.app-card .app-card-body.error p {
+  padding: 0;
+  margin: 0;
+}
+.app-card .app-card-body.error p:first-child {
+  font-weight: 600;
+}
+.app-card .app-card-body.error p:last-child {
+  font-size: 13px;
+}
+.app-card .app-card-body.success {
+  border-top: 1px solid #badbcc;
+  border-bottom: 1px solid #badbcc;
+  background: #d1e7dd;
+  color: #0f5132;
+}
+.app-card .app-card-body.success p {
+  padding: 0;
+  margin: 0;
+}
+.app-card .app-card-body.success p:first-child {
+  font-weight: 600;
+}
+.app-card .app-card-body.success p:last-child {
+  font-size: 13px;
+}
 .app-card .app-card-body.reports {
   text-decoration: none;
   color: rgb(var(--colorText));
@@ -268,6 +300,22 @@
   font-weight: 600;
 }
 .auth-card .auth-card-body.error p:last-child {
+  font-size: 13px;
+}
+.auth-card .auth-card-body.success {
+  border-top: 1px solid #badbcc;
+  border-bottom: 1px solid #badbcc;
+  background: #d1e7dd;
+  color: #0f5132;
+}
+.auth-card .auth-card-body.success p {
+  padding: 0;
+  margin: 0;
+}
+.auth-card .auth-card-body.success p:first-child {
+  font-weight: 600;
+}
+.auth-card .auth-card-body.success p:last-child {
   font-size: 13px;
 }
 .auth-card .auth-card-footer {

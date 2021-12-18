@@ -37,6 +37,9 @@
                                 <span class="citizen_number">BSN: {{ $profiles->citizen_number }}</span>
                                 <a href="{{ route('profiles.overview') }}/{{ $profiles->citizen_number }}" class="btn btn-primary btn-sm"><i class="far fa-eye fa-fw"></i> Bekijk</a>
                                 <a href="{{ route('reports.create') }}" class="btn btn-success btn-sm"><i class="far fa-plus fa-fw"></i> Nieuw rapport</a>
+                                @if($user->admin == '1')
+                                    <a href="{{ route('profiles.delete', $profiles->citizen_number) }}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt fa-fw" style="margin: 0;"></i></a>
+                                @endif
                             </li>
                         @empty
                             <li>Momenteel zijn er geen profielen te vinden.</li>
