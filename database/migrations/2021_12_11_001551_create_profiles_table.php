@@ -24,8 +24,8 @@ class CreateProfilesTable extends Migration
             $table->string('dna_code');
             $table->string('fingerprint');
             $table->string('phone_number');
-            $table->longText('comments');
-            $table->dateTime('last_search');
+            $table->mediumText('comments')->nullable();
+            $table->string('last_search');
             $table->timestamps();
         });
     }

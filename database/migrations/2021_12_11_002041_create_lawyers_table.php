@@ -23,6 +23,7 @@ class CreateLawyersTable extends Migration
             $table->string('dna_code');
             $table->string('fingerprint');
             $table->longText('comments');
+            $table->string('last_search');
             $table->timestamps();
         });
     }

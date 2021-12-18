@@ -15,6 +15,7 @@ class CreateDetectiveReportsTable extends Migration
     {
         Schema::create('detective_reports', function (Blueprint $table) {
             $table->id();
+            $table->string('last_search');
             $table->timestamps();
 
             /*

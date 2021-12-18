@@ -31,9 +31,10 @@ class CreateReportsTable extends Migration
             $table->string('statement')->nullable();
             $table->string('comments')->nullable();
             $table->string('cell');
+            $table->string('penalty');
             $table->string('laws');
             $table->string('created_by');
-            $table->dateTime('last_search');
+            $table->string('last_search');
             $table->timestamps();
         });
     }

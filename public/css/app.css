@@ -105,6 +105,16 @@
   text-decoration: none;
   color: rgb(var(--colorText));
 }
+.app-card .app-card-body.reports .reportnumber {
+  padding: 5px 10px;
+  margin: 0 5px 10px 0;
+  font-size: 11px;
+  color: #ffffff;
+  background: #004682;
+  border-radius: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
 .app-card .app-card-body.reports:hover {
   background: rgba(0, 0, 0, 0.05);
 }
@@ -114,6 +124,10 @@
 }
 .app-card .app-card-body.reports p.title {
   font-weight: 500;
+}
+.app-card .app-card-body.reports p.by {
+  margin: 5px 0 -5px 0;
+  font-size: 12px;
 }
 .app-card .app-card-body.reports strong {
   font-weight: 500;

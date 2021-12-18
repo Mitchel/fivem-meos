@@ -11,6 +11,22 @@ class Profile extends Model
 
     protected $table = 'profiles';
 
+    protected $fillable = [
+        'fullname',
+        'citizen_number',
+        'picture',
+        'birthday',
+        'gender',
+        'nationality',
+        'phone_number',
+        'fingerprint',
+        'dna_code'
+    ];
+
+    protected $hidden = [
+        'comments'
+    ];
+
     public function report()
     {
         return $this->belongsTo(Profile::class, 'citizen_number', 'citizen_number');
