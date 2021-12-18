@@ -23,8 +23,14 @@
                 <div class="app-card-body profile-info border-bottom">
                     <div class="row">
                         <div class="col-sm-12 col-md-4 mb-sm-3"><strong>Telefoonnummer</strong>{{ $data->phone_number }}</div>
-                        <div class="col-sm-12 col-md-4 mb-sm-3"><strong>Aantal rapporten</strong>{{ $reportstotal }} rapport(en)</div>
                         <div class="col-sm-12 col-md-4 mb-sm-3"><strong>Laatst opgezocht</strong>{{ $data->last_search }}</div>
+                    </div>
+                </div>
+                <div class="app-card-body profile-info border-bottom">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 mb-sm-3"><strong>Aantal rapporten</strong>{{ $reportstotal }} rapport(en)</div>
+                        <div class="col-sm-12 col-md-4 mb-sm-3"><strong>Totaal boetes</strong>&euro; {{ $totalpenalty }}</div>
+                        <div class="col-sm-12 col-md-4 mb-sm-3"><strong>Totaal celstraf</strong>{{ $totalcell }} maand(en)</div>
                     </div>
                 </div>
                 <div class="app-card-body profile-info">

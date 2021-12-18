@@ -6,45 +6,25 @@
         @if($user->admin == '1')
             <div class="col-sm-12 col-md-3">
                 <div class="app-card stats">
-                    <div class="app-card-body text-center">
-                        <i class="far fa-file-alt fa-fw"></i>
-                        <p>
-                            <strong>{{ $statsReports }}</strong> Rapporten
-                        </p>
-                    </div>
+                    <div class="app-card-body text-center"><i class="far fa-file-alt fa-fw"></i><p><strong>{{ $statsReports }}</strong> Rapporten</p></div>
                 </div>
             </div>
 
             <div class="col-sm-12 col-md-3">
                 <div class="app-card stats">
-                    <div class="app-card-body text-center">
-                        <i class="far fa-users fa-fw"></i>
-                        <p>
-                            <strong>{{ $statsProfiles }}</strong> Profielen
-                        </p>
-                    </div>
+                    <div class="app-card-body text-center"><i class="far fa-users fa-fw"></i><p><strong>{{ $statsProfiles }}</strong> Profielen</p></div>
                 </div>
             </div>
 
             <div class="col-sm-12 col-md-3">
                 <div class="app-card stats">
-                    <div class="app-card-body text-center">
-                        <i class="far fa-siren-on fa-fw"></i>
-                        <p>
-                            <strong>{{ $statsLaws }}</strong> Straffen
-                        </p>
-                    </div>
+                    <div class="app-card-body text-center"><i class="far fa-siren-on fa-fw"></i><p><strong>{{ $statsLaws }}</strong> Straffen</p></div>
                 </div>
             </div>
 
             <div class="col-sm-12 col-md-3">
                 <div class="app-card stats">
-                    <div class="app-card-body text-center">
-                        <i class="far fa-users-crown fa-fw"></i>
-                        <p>
-                            <strong>{{ $statsUsers }}</strong> Agenten
-                        </p>
-                    </div>
+                    <div class="app-card-body text-center"><i class="far fa-users-crown fa-fw"></i><p><strong>{{ $statsUsers }}</strong> Agenten</p></div>
                 </div>
             </div>
         @endif

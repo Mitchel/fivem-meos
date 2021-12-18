@@ -84,6 +84,9 @@ class AppController extends Controller
         $showvehicles = Vehicle::where('citizen_number', $citizen_number)->get();
         $showproperties = Properties::where('citizen_number', $citizen_number)->get();
 
+        $totalpenalty = Report::where('citizen_number', $citizen_number)->sum('penalty');
+        $totalcell = Report::where('citizen_number', $citizen_number)->sum('cell');
+
         return view('app.profiles.view')->with([
             'showprofile' => $showprofile,
             'showreport' => $showreport,
@@ -91,6 +94,8 @@ class AppController extends Controller
             'showwarrant' => $showwarant,
             'showvehicles' => $showvehicles,
             'showproperties' => $showproperties,
+            'totalpenalty' => $totalpenalty,
+            'totalcell' => $totalcell,
             'citizen_number' => $citizen_number
         ]);
     }
