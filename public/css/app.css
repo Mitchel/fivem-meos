@@ -34,6 +34,18 @@
   border-radius: 5px;
   overflow: hidden;
 }
+.app-card.stats .app-card-body i {
+  font-size: 25px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+.app-card.stats .app-card-body p {
+  margin: 0;
+  padding: 0;
+}
+.app-card.stats .app-card-body p strong {
+  font-weight: 600;
+}
 .app-card.warrant {
   background: #e74c3c;
 }

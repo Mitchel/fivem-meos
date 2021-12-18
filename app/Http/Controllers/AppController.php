@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Law;
 use App\Models\Profile;
 use App\Models\Properties;
 use App\Models\Report;
+use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\Warrant;
 use Illuminate\Http\Request;
@@ -21,9 +23,18 @@ class AppController extends Controller
         $recentProfiles = Profile::orderBy('last_search', 'desc')->limit(5)->get()->all();
         $recentReports = Report::orderBy('last_search', 'desc')->limit(5)->get()->all();
 
+        $statsReports = Report::get()->count();
+        $statsProfiles = Profile::get()->count();
+        $statsLaws = Law::get()->count();
+        $statsUsers = User::get()->count();
+
         return view('app.dashboard')->with([
             'recentProfiles' => $recentProfiles,
             'recentReports' => $recentReports,
+            'statsReports' => $statsReports,
+            'statsProfiles' => $statsProfiles,
+            'statsLaws' => $statsLaws,
+            'statsUsers' => $statsUsers,
         ]);
     }
 

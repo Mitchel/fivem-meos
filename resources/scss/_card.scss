@@ -10,6 +10,25 @@
     border-radius: 5px;
     overflow: hidden;
 
+    &.stats {
+        .app-card-body {
+            i {
+                font-size: 25px;
+                display: block;
+                margin: 0 auto 10px auto;
+            }
+
+            p {
+                margin: 0;
+                padding: 0;
+
+                strong {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
     &.warrant {
         background: #e74c3c;
 
