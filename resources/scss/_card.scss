@@ -10,6 +10,117 @@
     border-radius: 5px;
     overflow: hidden;
 
+    &.reports-view {
+        .app-card-header {
+            strong {
+                font-weight: 500;
+            }
+
+            .reportnumber {
+                padding: 5px 10px;
+                margin: 0 5px 10px 0;
+                font-size: 11px;
+                color: #ffffff;
+                background: #004682;
+                border-radius: 5px;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+        }
+
+        .app-card-body {
+
+            .report-body {
+                .row {
+                    margin-bottom: 30px;
+
+                    span {
+                        margin: 0 10px 0 0;
+
+                        &.first_letter {
+                            margin: 0;
+                            text-transform: capitalize;
+                        }
+
+                        &.pv-1 {
+                            margin: 0;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                ul {
+                    list-style-type: square;
+                    padding-left: 1.3rem;
+
+                    li {
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+
+                p {
+                    i {
+                        font-size: 13px;
+                    }
+
+                    &.title {
+                        margin: 0 0 3px 0;
+
+                        strong {
+                            font-size: 16px;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+
+                strong {
+                    font-weight: 500;
+                }
+            }
+
+            .report-header {
+                text-align: center;
+
+                img {
+                    margin: 0 auto 20px auto;
+                    width: 175px;
+                    display: block;
+                }
+
+                p {
+                    margin: 0;
+                    padding: 0;
+                    font-weight: 500;
+                    font-family: "Roboto Mono", monospace;
+                    text-align: left;
+                    text-transform: uppercase;
+
+                    &.report_number {
+                        margin: 20px auto 0 auto;
+
+                        span {
+                            font-weight: 400;
+                        }
+                    }
+
+                    &.title {
+                        text-align: center;
+                        letter-spacing: 5px;
+                        font-size: 18px;
+                    }
+
+                    &.type {
+                        text-align: center;
+                        text-transform: lowercase;
+                        font-weight: 400;
+                        margin: 0 auto 30px auto;
+                    }
+                }
+            }
+        }
+    }
+
     &.stats {
         .app-card-body {
             i {
@@ -56,6 +167,11 @@
         -webkit-box-align: center;
         align-items: center;
         border-bottom: 1px solid rgba(240, 240, 240, 1);
+
+        &.blue-bg {
+            background: rgba(0, 70, 130, 1);
+            color: #ffffff;
+        }
 
         &.no-border {
             border-bottom: 0;
@@ -128,6 +244,17 @@
         position: relative;
         display: block;
         padding: 20px;
+
+        &.report-details {
+            p {
+                margin: 0;
+                padding: 0;
+
+                strong {
+                    font-weight: 500;
+                }
+            }
+        }
 
         &.law-info {
             ul {

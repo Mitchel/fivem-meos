@@ -234,12 +234,38 @@ class AppController extends Controller
 
     public function profilesEdit(Request $request, $citizen_number)
     {
+        $profile = Profile::where('citizen_number', $citizen_number)->firstOrFail();
+
         if($request->isMethod('post')) {
-            // TODO: Post method maken.
+            $this->validate($request, [
+                'fullname'              => ['required', 'min:3', 'max:255'],
+                'birthday'              => ['required', 'min:1', 'max:25'],
+                'citizen_number'        => ['required', 'min:1', 'max:25'],
+                'nationality'           => ['required', 'min:1', 'max:1000'],
+                'picture'               => ['required', 'min:1', 'max:1000'],
+                'dna_code'              => ['required', 'min:1', 'max:1000'],
+                'fingerprint'           => ['required', 'min:1', 'max:1000'],
+                'phone_number'          => ['required', 'min:1', 'max:1000'],
+            ]);
+
+            $profile_data = [
+                'fullname'              => $request->fullname,
+                'birthday'              => $request->birthday,
+                'citizen_number'        => $request->citizen_number,
+                'nationality'           => $request->nationality,
+                'picture'               => $request->picture,
+                'dna_code'              => $request->dna_code,
+                'fingerprint'           => $request->fingerprint,
+                'phone_number'          => $request->phone_number,
+            ];
+
+            Profile::where('citizen_number', $citizen_number)->update($profile_data);
+            return redirect()->route('profiles.view', $citizen_number)->with('success', 'Het profiel is succesvol aangepast');
         }
 
         return view('app.profiles.edit')->with([
-            'citizen_number' => $citizen_number
+            'citizen_number' => $citizen_number,
+            'profile'   => $profile,
         ]);
     }
 
@@ -264,10 +290,19 @@ class AppController extends Controller
         ]);
     }
 
-    public function reportsView($report_number)
+    public function reportsView($report_number, Request $request)
     {
+        if($request->isMethod('get')) {
+            $report = Report::where('report_number', $report_number)->first();
+            $report->last_search = now('Europe/Amsterdam')->format('d-m-Y H:i:s');
+            $report->save();
+        }
+
+        $reports = Report::with('profile')->with('user')->where('report_number', $report_number)->get()->all();
+
         return view('app.reports.view')->with([
-            'report_number' => $report_number
+            'report_number' => $report_number,
+            'reports' => $reports
         ]);
     }
 

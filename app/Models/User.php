@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    public function report()
+    {
+        return $this->belongsTo(Profile::class, 'citizen_number', 'citizen_number');
+    }
 }

@@ -7,12 +7,19 @@
             @forelse($showprofile as $data)
             <div class="app-card">
                 <div class="app-card-header profile-info">
+                    <a href="{{ route('profiles.edit', $data->citizen_number) }}" class="btn btn-sm btn-primary"><i class="fas fa-pencil fa-fw"></i></a>
                     <img src="{{ $data->picture }}" alt="{{ $data->fullname }}">
                     <p class="title">{{ $data->fullname }}</p>
                     <p class="description">BSN: <strong>{{ $data->citizen_number }}</strong></p>
                     <p class="description">Geboortedatum: <strong>{{ $data->birthday }}</strong></p>
                     <p class="description">Geslacht: <strong>{{ $data->gender }}</strong></p>
                 </div>
+                @if(session()->has('success'))
+                    <div class="app-card-body success">
+                        <p>Goed gedaan, de korpsleiding is trots op je!</p>
+                        <p>{{ session('success') }}</p>
+                    </div>
+                @endif
                 <div class="app-card-body profile-info border-bottom">
                     <div class="row">
                         <div class="col-sm-12 col-md-4 mb-sm-3"><strong>Nationaliteit</strong>{{ $data->nationality }}</div>
@@ -44,7 +51,7 @@
             @endforelse
             <div class="app-card">
                 <div class="app-card-header">
-                    <a href="{{ route('reports.create') }}" class="btn btn-success btn-sm"><i class="far fa-plus fa-fw"></i> Nieuw voertuig</a>
+                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-plus fa-fw"></i> Toevoegen volgt later</a>
                     <p class="title">Voertuigen</p>
                     <p class="description">Op naam van gebruiker</p>
                 </div>
@@ -63,7 +70,7 @@
             </div>
             <div class="app-card">
                 <div class="app-card-header">
-                    <a href="{{ route('reports.create') }}" class="btn btn-success btn-sm"><i class="far fa-plus fa-fw"></i> Nieuw pand</a>
+                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-plus fa-fw"></i> Toevoegen volgt later</a>
                     <p class="title">Panden</p>
                     <p class="description">Op naam van gebruiker</p>
                 </div>

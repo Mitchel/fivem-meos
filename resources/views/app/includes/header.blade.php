@@ -1,6 +1,6 @@
 <div id="app-header">
     <div class="container">
-        <img src="{{ asset('images/politie-logo.png') }}" class="img-fluid" alt="Description about image">
+        <img src="{{ asset('images/politie-logo.png') }}" class="img-fluid" alt="Politie Eenheid Los Santos">
         <p>Eenheid Los Santos</p>
     </div>
 </div>

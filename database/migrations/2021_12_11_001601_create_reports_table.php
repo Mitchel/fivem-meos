@@ -27,13 +27,15 @@ class CreateReportsTable extends Migration
             $table->string('transport_cuffs');
             $table->string('used_force');
             $table->string('legal_aid');
-            $table->string('findings');
-            $table->string('statement')->nullable();
-            $table->string('comments')->nullable();
+            $table->string('rights_read');
+            $table->longText('findings');
+            $table->mediumText('statement')->nullable();
+            $table->mediumText('comments')->nullable();
             $table->string('cell');
             $table->string('penalty');
             $table->string('laws');
             $table->string('created_by');
+            $table->string('created_by_function');
             $table->string('last_search');
             $table->timestamps();
         });

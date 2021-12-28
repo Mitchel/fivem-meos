@@ -34,6 +34,87 @@
   border-radius: 5px;
   overflow: hidden;
 }
+.app-card.reports-view .app-card-header strong {
+  font-weight: 500;
+}
+.app-card.reports-view .app-card-header .reportnumber {
+  padding: 5px 10px;
+  margin: 0 5px 10px 0;
+  font-size: 11px;
+  color: #ffffff;
+  background: #004682;
+  border-radius: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.app-card.reports-view .app-card-body .report-body .row {
+  margin-bottom: 30px;
+}
+.app-card.reports-view .app-card-body .report-body .row span {
+  margin: 0 10px 0 0;
+}
+.app-card.reports-view .app-card-body .report-body .row span.first_letter {
+  margin: 0;
+  text-transform: capitalize;
+}
+.app-card.reports-view .app-card-body .report-body .row span.pv-1 {
+  margin: 0;
+  font-weight: 500;
+}
+.app-card.reports-view .app-card-body .report-body ul {
+  list-style-type: square;
+  padding-left: 1.3rem;
+}
+.app-card.reports-view .app-card-body .report-body ul li {
+  margin: 0;
+  padding: 0;
+}
+.app-card.reports-view .app-card-body .report-body p i {
+  font-size: 13px;
+}
+.app-card.reports-view .app-card-body .report-body p.title {
+  margin: 0 0 3px 0;
+}
+.app-card.reports-view .app-card-body .report-body p.title strong {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.app-card.reports-view .app-card-body .report-body strong {
+  font-weight: 500;
+}
+.app-card.reports-view .app-card-body .report-header {
+  text-align: center;
+}
+.app-card.reports-view .app-card-body .report-header img {
+  margin: 0 auto 20px auto;
+  width: 175px;
+  display: block;
+}
+.app-card.reports-view .app-card-body .report-header p {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-family: "Roboto Mono", monospace;
+  text-align: left;
+  text-transform: uppercase;
+}
+.app-card.reports-view .app-card-body .report-header p.report_number {
+  margin: 20px auto 0 auto;
+}
+.app-card.reports-view .app-card-body .report-header p.report_number span {
+  font-weight: 400;
+}
+.app-card.reports-view .app-card-body .report-header p.title {
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 18px;
+}
+.app-card.reports-view .app-card-body .report-header p.type {
+  text-align: center;
+  text-transform: lowercase;
+  font-weight: 400;
+  margin: 0 auto 30px auto;
+}
 .app-card.stats .app-card-body i {
   font-size: 25px;
   display: block;
@@ -66,6 +147,10 @@
   padding: 20px;
   align-items: center;
   border-bottom: 1px solid #f0f0f0;
+}
+.app-card .app-card-header.blue-bg {
+  background: #004682;
+  color: #ffffff;
 }
 .app-card .app-card-header.no-border {
   border-bottom: 0;
@@ -126,6 +211,13 @@
   position: relative;
   display: block;
   padding: 20px;
+}
+.app-card .app-card-body.report-details p {
+  margin: 0;
+  padding: 0;
+}
+.app-card .app-card-body.report-details p strong {
+  font-weight: 500;
 }
 .app-card .app-card-body.law-info ul {
   margin: 7px 0;
